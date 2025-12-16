@@ -1,10 +1,9 @@
 import express from "express";
+import { entryScan } from "../controllers/entry.controller.js";
+import { adminAuth } from "../middlewares/admin.middleware.js";
 
 const router = express.Router();
 
-// Entry scan health check
-router.get("/health", (req, res) => {
-  res.json({ status: "Entry routes working" });
-});
+router.post("/scan", adminAuth, entryScan);
 
 export default router;

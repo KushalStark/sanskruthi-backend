@@ -8,12 +8,12 @@ export async function generateQR(user) {
     event: "SANSKRUTHI2K26"
   };
 
-  const signature = crypto
+  const sig = crypto
     .createHmac("sha256", process.env.QR_SECRET)
     .update(JSON.stringify(payload))
     .digest("hex");
 
-  const qrData = JSON.stringify({ ...payload, sig: signature });
+  const data = JSON.stringify({ ...payload, sig });
 
-  return await QRCode.toDataURL(qrData);
+  return await QRCode.toDataURL(data);
 }

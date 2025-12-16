@@ -2,9 +2,14 @@ import express from "express";
 import cors from "cors";
 
 import adminRoutes from "./routes/admin.routes.js";
+import adminRoutes from "./src/routes/admin.routes.js";
+
 import authRoutes from "./routes/auth.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import entryRoutes from "./routes/entry.routes.js";
+import entryRoutes from "./routes/entry.routes.js";
+app.use("/api/entry", entryRoutes);
+
 
 
 const app = express();

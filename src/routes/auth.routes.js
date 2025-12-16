@@ -1,10 +1,12 @@
 import express from "express";
+import { register } from "../controllers/auth.controller.js";
 
 const router = express.Router();
 
-// Auth health check
-router.get("/health", (req, res) => {
-  res.json({ status: "Auth routes working" });
-});
+router.post("/register", register);
+router.post("/send-otp", sendOtp);
+router.post("/verify-otp", verifyOtp);
+
+
 
 export default router;
